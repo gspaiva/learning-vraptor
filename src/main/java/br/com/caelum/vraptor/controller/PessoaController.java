@@ -7,6 +7,7 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.hibernateutil.HibernateUtil;
 import br.com.caelum.vraptor.models.Pessoa;
 import org.hibernate.Criteria;
+import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import javax.inject.Inject;
@@ -35,13 +36,15 @@ public class PessoaController  {
         //pessoaService.persist(pessoa);
 
 
-        Transaction tx = HibernateUtil.build().beginTransaction();
+        Session session = HibernateUtil.build();
 
-        HibernateUtil.build().save(pessoa);
+        Transaction tx = session.beginTransaction();
+
+        session.save(pessoa);
 
         tx.commit();
 
-        HibernateUtil.build().close();
+        session.close();
 
         result.redirectTo(this).pessoa();
     }
