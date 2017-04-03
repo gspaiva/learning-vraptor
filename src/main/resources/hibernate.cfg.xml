@@ -26,5 +26,7 @@
         <property name="format_sql">true</property>
 
         <mapping class="br.com.caelum.vraptor.models.Pessoa" />
+        <mapping class="br.com.caelum.vraptor.models.Endereco" />
+
     </session-factory>
 </hibernate-configuration>

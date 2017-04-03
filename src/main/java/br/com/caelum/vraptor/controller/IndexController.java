@@ -5,25 +5,19 @@ import javax.inject.Inject;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.dao.PessoaDAO;
 
 @Controller
 public class IndexController {
 
-	private final Result result;
-
-
-	protected IndexController() {
-		this(null);
-	}
-	
 	@Inject
-	public IndexController(Result result) {
-		this.result = result;
-	}
+	private  Result result;
+	@Inject
+	PessoaDAO pessoaDAO;
+
 
 	@Path("/")
 	public void index() {
-
-		result.include("variable", "VRaptor!");
+		result.include("pessoas", pessoaDAO.list());
 	}
 }
