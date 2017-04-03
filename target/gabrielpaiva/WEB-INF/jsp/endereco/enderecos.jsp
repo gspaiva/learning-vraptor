@@ -6,7 +6,6 @@
 </head>
 <body>
 
-<p> ${Ola}</p>
 
 <form action="${linkTo[EnderecoController].add}" method="post">
     <span>Logradouro </span>
