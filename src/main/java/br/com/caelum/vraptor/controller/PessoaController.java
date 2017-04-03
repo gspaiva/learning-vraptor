@@ -3,15 +3,11 @@ package br.com.caelum.vraptor.controller;
 import br.com.caelum.vraptor.*;
 import br.com.caelum.vraptor.dao.EnderecoDAO;
 import br.com.caelum.vraptor.dao.PessoaDAO;
-import br.com.caelum.vraptor.hibernateutil.HibernateUtil;
 import br.com.caelum.vraptor.models.Endereco;
 import br.com.caelum.vraptor.models.Pessoa;
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import javax.inject.Inject;
-import java.util.logging.Logger;
+
 
 
 @Controller
@@ -32,6 +28,7 @@ public class PessoaController  {
     public void pessoa(){
         result.include("pessoas",pessoaDAO.list());
     }
+
     @Post
     public void add(Pessoa pessoa){
         pessoaDAO.create(pessoa);

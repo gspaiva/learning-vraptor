@@ -7,8 +7,6 @@ import br.com.caelum.vraptor.models.Endereco;
 import br.com.caelum.vraptor.models.Pessoa;
 
 import javax.inject.Inject;
-import java.util.logging.Logger;
-
 
 @Controller
 public class EnderecoController {
@@ -32,19 +30,18 @@ public class EnderecoController {
     public void add(Endereco endereco){
 
         Pessoa pessoa  = pessoaDAO.read(endereco.getPessoa().getId());
-
         endereco.setPessoa(pessoa);
         enderecoDAO.create(endereco);
         //result.redirectTo(this).enderecos();
-
     }
+
     @Delete("/endereco/{id}/pessoa/{idPessoa}")
     public void deleteEndereco( int id, int idPessoa){
-
         Endereco endereco = enderecoDAO.read(id);
         pessoaDAO.deleteEnderecoLista(endereco,idPessoa);
         result.redirectTo(PessoaController.class).pessoa_enderecos(idPessoa);
     }
+
     @Get("/endereco/{id}")
     public void editar(int id){
         Endereco endereco = enderecoDAO.read(id);

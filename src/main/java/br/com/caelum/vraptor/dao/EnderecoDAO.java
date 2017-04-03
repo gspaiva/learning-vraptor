@@ -12,9 +12,6 @@ import org.hibernate.criterion.Restrictions;
 import java.util.List;
 import java.util.logging.Logger;
 
-/**
- * Created by gabriel on 02/04/17.
- */
 public class EnderecoDAO implements DAOInterface<Endereco> {
 
     Session session;
